@@ -1,5 +1,6 @@
 import { COLORS } from "@/styles/colors";
 import { flex } from "@/styles/tokens";
+import { TYPO } from "@/styles/typo";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { ComponentProps } from "react";
@@ -12,17 +13,19 @@ interface Props extends ComponentProps<"button"> {
 const Basic = ({ title, buttonType = "default", ...props }: Props) => {
   return (
     <ButtonWrapper css={buttonStyles[buttonType]} {...props}>
-      {title}
+      <span>{title}</span>
     </ButtonWrapper>
   );
 };
 
 const ButtonWrapper = styled.button`
   width: 100%;
-  height: 4.5rem;
-  border-radius: 0.6rem;
+  height: 55px;
+  border-radius: 5rem;
   position: relative;
   ${flex("row", "center", "center", 0)};
+  border: none;
+  ${TYPO.title2};
 `;
 
 const buttonStyles = {

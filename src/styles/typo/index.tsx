@@ -33,7 +33,7 @@ export const TYPO: TypoType = {
   `,
   [TEXT_STYLE_SIZE.title1]: css`
     ${bumseokRegular.style};
-    font-size: 5rem;
+    font-size: 3rem;
   `,
   [TEXT_STYLE_SIZE.title2]: css`
     ${bumseokRegular.style};
