@@ -1,32 +1,32 @@
-import { css } from '@emotion/react';
-import styled from '@emotion/styled';
+import { css } from "@emotion/react";
+import styled from "@emotion/styled";
 
-type Direction = 'row' | 'column';
+type Direction = "row" | "column";
 type JustifyContent =
-  | 'between'
-  | 'around'
-  | 'evenly'
-  | 'center'
-  | 'start'
-  | 'end';
-type AlignItems = 'between' | 'around' | 'evenly' | 'center' | 'start' | 'end';
+  | "between"
+  | "around"
+  | "evenly"
+  | "center"
+  | "start"
+  | "end";
+type AlignItems = "between" | "around" | "evenly" | "center" | "start" | "end";
 
 const justifyContentMap: Record<JustifyContent, string> = {
-  between: 'space-between',
-  around: 'space-around',
-  evenly: 'space-evenly',
-  center: 'center',
-  start: 'flex-start',
-  end: 'flex-end',
+  between: "space-between",
+  around: "space-around",
+  evenly: "space-evenly",
+  center: "center",
+  start: "flex-start",
+  end: "flex-end",
 };
 
 const alignItemsMap: Record<AlignItems, string> = {
-  between: 'space-between',
-  around: 'space-around',
-  evenly: 'space-evenly',
-  center: 'center',
-  start: 'flex-start',
-  end: 'flex-end',
+  between: "space-between",
+  around: "space-around",
+  evenly: "space-evenly",
+  center: "center",
+  start: "flex-start",
+  end: "flex-end",
 };
 
 /** display flex injector */
@@ -34,7 +34,7 @@ export const flex = (
   direction: Direction,
   justifyContent: JustifyContent,
   alignItems: AlignItems,
-  gap: number,
+  gap: number
 ) => {
   return css`
     display: flex;
@@ -56,7 +56,7 @@ export const transform = (transformVal: string) => {
 };
 
 /** transition injector */
-export const transition = (duration: string, animationType = 'linear') => {
+export const transition = (duration: string, animationType = "linear") => {
   return css`
     -o-transition: all ${duration} ${animationType};
     -webkit-transition: -webkit-transform ${duration};
@@ -68,5 +68,7 @@ export const transition = (duration: string, animationType = 'linear') => {
 
 export const PageContainer = styled.div`
   width: 100%;
+  height: 100%;
   padding: 1rem 2.7rem;
+  position: relative;
 `;

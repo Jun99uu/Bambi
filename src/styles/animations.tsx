@@ -1,5 +1,5 @@
-import { SerializedStyles, css, keyframes } from '@emotion/react';
-import { transform } from './tokens';
+import { SerializedStyles, css, keyframes } from "@emotion/react";
+import { transform } from "./tokens";
 
 // 인터랙션 저장소
 // 애니메이션 추가 -> 해당 애니메이션 객체에 담기 -> injextAnimation 함수로 사용
@@ -17,26 +17,26 @@ const fadeInTopDown = keyframes`
 const fadeInTopDownTranslate = keyframes`
     from{
         opacity: 0;
-        ${transform('translate(0px, -10px)')}
+        ${transform("translate(0px, -10px)")}
     }
     to{
         opacity: 1;
-        ${transform('translate(0px, 0px)')}
+        ${transform("translate(0px, 0px)")}
     }
 `;
 
 const popUp = keyframes`
   0%{
     opacity: 0;
-    ${transform('translate(0px, 1px)')}
+    ${transform("translate(0px, 1px)")}
   }
   90%{
     opacity: 1;
-    ${transform('translate(0px, -0.5px) scale(1.01)')}
+    ${transform("translate(0px, -0.5px) scale(1.01)")}
   }
   100%{
     opacity: 1;
-    ${transform('translate(0px, 0px) scale(1)')}
+    ${transform("translate(0px, 0px) scale(1)")}
   }
 `;
 
@@ -44,29 +44,29 @@ const circleMoving = {
   top: keyframes`
     0%{
       opacity: 0;
-      ${transform('rotate(180deg) translate(10%, -10%)')};
+      ${transform("rotate(180deg) translate(10%, -10%)")};
     }
     50%{
       opacity: 1;
-      ${transform('rotate(180deg) translate(0%, -10%)')};
+      ${transform("rotate(180deg) translate(0%, -10%)")};
     }
     100%{
       opacity: 1;
-      ${transform('rotate(180deg) translate(0%, 0%)')};
+      ${transform("rotate(180deg) translate(0%, 0%)")};
     }
   `,
   bottom: keyframes`
     0%{
       opacity: 0;
-      ${transform('rotate(10deg) translate(10%, -10%)')};
+      ${transform("rotate(10deg) translate(10%, -10%)")};
     }
     50%{
       opacity: 1;
-      ${transform('rotate(10deg) translate(0%, -10%)')};
+      ${transform("rotate(10deg) translate(0%, -10%)")};
     }
     100%{
       opacity: 1;
-      ${transform('rotate(10deg) translate(0%, 0%)')};
+      ${transform("rotate(10deg) translate(0%, 0%)")};
     }
   `,
 };
@@ -100,6 +100,15 @@ const loginButtonPopup = keyframes`
   }
 `;
 
+const footPrinting = keyframes`
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+`;
+
 const animations = {
   fadeInTopDown,
   fadeInTopDownTranslate,
@@ -108,14 +117,15 @@ const animations = {
   circleMovingBottom: circleMoving.bottom,
   loginTitlePopup,
   loginButtonPopup,
+  footPrinting,
 };
 
 export const injectAnimation = (
   animation: keyof typeof animations,
-  duration = '1.5s',
-  type = 'linear',
-  delay = '0s',
-  relative = false,
+  duration = "1.5s",
+  type = "linear",
+  delay = "0s",
+  relative = false
 ): SerializedStyles => {
   const newAnimation = css`
     animation: ${animations[animation]} ${duration} ${type} ${delay} forwards;

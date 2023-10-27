@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { NavHeader, TitleHeader } from "../Header";
 import { useHeader } from "@/hooks";
+import { signOut } from "next-auth/react";
 
 const FrameHeader = () => {
   const router = useRouter();
@@ -14,14 +15,18 @@ const FrameHeader = () => {
     router.push("/mypage");
   };
 
+  const handleSignoutBack = async () => {
+    await signOut();
+    router.back();
+  };
+
   switch (router.pathname) {
     case "/login":
       return <></>;
     case "/":
-    case "/template":
-    case "/mate":
-    case "/schedule":
       return <TitleHeader mypageHandler={handleMyPage} />;
+    case "/signup":
+      return <NavHeader title={headerTitle} onBack={handleSignoutBack} />;
     default:
       return <NavHeader title={headerTitle} onBack={handleBack} />;
   }

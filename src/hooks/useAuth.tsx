@@ -1,4 +1,4 @@
-import { useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
@@ -30,12 +30,7 @@ const useAuth = () => {
 
   useEffect(() => {
     if (status === "unauthenticated") redirectLoginPage();
-    if (
-      status === "authenticated" &&
-      !isAuth() &&
-      !unAuthPathCheck(router.pathname)
-    )
-      redirectSignupPage();
+    if (status === "authenticated" && !isAuth()) redirectSignupPage();
   }, [status]);
 
   return {

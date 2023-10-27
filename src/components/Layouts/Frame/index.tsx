@@ -12,26 +12,42 @@ interface FrameProps extends ComponentProps<"div"> {
   children: React.ReactNode;
 }
 
+const fullScreens = ["/login", "/signup"];
+
 /** 모바일 환경 최적화 프레임 */
 const Frame = ({ children, ...props }: FrameProps) => {
   const { vh } = useVh();
   const router = useRouter();
-  useAuth();
+  const { status } = useAuth();
+
+  const isFullScreen = (pathname: string) => {
+    if (fullScreens.includes(pathname))
+      return css`
+        height: calc(${vh}px * 100);
+
+        ${mq[3]} {
+          height: 100vh;
+        }
+      `;
+    return css`
+      min-height: calc(${vh}px * 100);
+
+      ${mq[3]} {
+        min-height: 100vh;
+      }
+    `;
+  };
 
   const backgroundStyle = css`
     max-width: 50rem;
     width: 100vw;
-    min-height: calc(${vh}px * 100);
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
     overflow: hidden;
-
-    ${mq[3]} {
-      min-height: 100vh;
-    }
+    ${isFullScreen(router.pathname)}
   `;
 
   const getBgColor = (pathname: string) => {

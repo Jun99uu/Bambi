@@ -33,6 +33,7 @@ const HeaderWrapper = styled.div`
   top: 0px;
   left: 50%;
   ${transform("translate(-50%, 0%)")};
+  z-index: 10;
 
   box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.1);
 
@@ -63,7 +64,7 @@ const Chevron = styled.span`
   color: ${COLORS.grey0};
   position: absolute;
   top: 50%;
-  left: 1.5rem;
+  left: 0.8%;
   transform: translate(0, -50%);
   transition: all 0.2s;
 
