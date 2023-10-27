@@ -40,7 +40,7 @@ const HeaderWrapper = styled.div`
 `;
 
 const Logo = styled.span`
-  ${TYPO.title1.Sb};
+  ${TYPO.title1};
   font-weight: 900;
   color: ${COLORS.primary};
   cursor: pointer;

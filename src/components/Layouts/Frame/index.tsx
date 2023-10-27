@@ -1,14 +1,14 @@
-import { useVh } from '@/hooks';
-import { mq } from '@/styles/breakpoints';
-import { css } from '@emotion/react';
-import { type ComponentProps } from 'react';
-import FrameHeader from './FrameHeader';
-import styled from '@emotion/styled';
-import FrameNavigator from './FrameNavigator';
-import { COLORS } from '@/styles/colors';
-import { useRouter } from 'next/router';
+import { useAuth, useVh } from "@/hooks";
+import { mq } from "@/styles/breakpoints";
+import { css } from "@emotion/react";
+import { type ComponentProps } from "react";
+import FrameHeader from "./FrameHeader";
+import styled from "@emotion/styled";
+import FrameNavigator from "./FrameNavigator";
+import { COLORS } from "@/styles/colors";
+import { useRouter } from "next/router";
 
-interface FrameProps extends ComponentProps<'div'> {
+interface FrameProps extends ComponentProps<"div"> {
   children: React.ReactNode;
 }
 
@@ -16,6 +16,7 @@ interface FrameProps extends ComponentProps<'div'> {
 const Frame = ({ children, ...props }: FrameProps) => {
   const { vh } = useVh();
   const router = useRouter();
+  useAuth();
 
   const backgroundStyle = css`
     max-width: 50rem;
@@ -35,7 +36,7 @@ const Frame = ({ children, ...props }: FrameProps) => {
 
   const getBgColor = (pathname: string) => {
     switch (pathname) {
-      case '/landing':
+      case "/landing":
         return bgColorStyle.login;
       default:
         return css``;

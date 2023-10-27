@@ -94,7 +94,7 @@ const NavigatorItem = styled.div<{ checked: boolean }>`
   }
 
   span:nth-child(2) {
-    ${TYPO.label.Reg};
+    ${TYPO.label};
   }
 
   ${(props) => (props.checked ? itemStyles.checked : itemStyles.non)}

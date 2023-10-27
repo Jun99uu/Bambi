@@ -3,15 +3,18 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import { Frame } from "@/components/Layouts";
 import { Global } from "@emotion/react";
 import reset from "@/styles/reset";
-import { useRouter } from "next/router";
+import { SessionProvider } from "next-auth/react";
 
-export default function App({ Component, pageProps }: AppProps) {
-  const router = useRouter();
-
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}: AppProps) {
   return (
-    <Frame>
-      <Global styles={reset} />
-      <Component {...pageProps} />
-    </Frame>
+    <SessionProvider session={session}>
+      <Frame>
+        <Global styles={reset} />
+        <Component {...pageProps} />
+      </Frame>
+    </SessionProvider>
   );
 }

@@ -1,5 +1,11 @@
+import { LoginButton } from "@/components/Buttons";
+
 const Login = () => {
-  return <></>;
+  return (
+    <>
+      <LoginButton socialType="KAKAO" />
+    </>
+  );
 };
 
 export default Login;

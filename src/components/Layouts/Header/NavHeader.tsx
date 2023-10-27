@@ -1,13 +1,13 @@
-import { mq } from '@/styles/breakpoints';
-import { COLORS } from '@/styles/colors';
-import { flex, transform } from '@/styles/tokens';
-import { TYPO } from '@/styles/typo';
-import styled from '@emotion/styled';
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { ComponentProps } from 'react';
+import { mq } from "@/styles/breakpoints";
+import { COLORS } from "@/styles/colors";
+import { flex, transform } from "@/styles/tokens";
+import { TYPO } from "@/styles/typo";
+import styled from "@emotion/styled";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ComponentProps } from "react";
 
-interface Props extends ComponentProps<'div'> {
+interface Props extends ComponentProps<"div"> {
   title: string;
   onBack?: () => void;
 }
@@ -32,7 +32,7 @@ const HeaderWrapper = styled.div`
   position: fixed;
   top: 0px;
   left: 50%;
-  ${transform('translate(-50%, 0%)')};
+  ${transform("translate(-50%, 0%)")};
 
   box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.1);
 
@@ -45,11 +45,11 @@ const HeaderInner = styled.div`
   width: 100%;
   height: 100%;
   position: relative;
-  ${flex('row', 'center', 'center', 0)};
+  ${flex("row", "center", "center", 0)};
 `;
 
 const HeaderTitle = styled.span`
-  ${TYPO.title2.Md};
+  ${TYPO.title2};
   color: ${COLORS.grey0};
   cursor: default;
 `;
@@ -57,9 +57,9 @@ const HeaderTitle = styled.span`
 const Chevron = styled.span`
   height: 100%;
   aspect-ratio: 1;
-  ${flex('row', 'center', 'center', 0)};
+  ${flex("row", "center", "center", 0)};
 
-  ${TYPO.title2.Md};
+  ${TYPO.title2};
   color: ${COLORS.grey0};
   position: absolute;
   top: 50%;
