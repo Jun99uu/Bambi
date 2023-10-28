@@ -1,5 +1,5 @@
-import { useRouter } from 'next/router';
-import { Navigator } from '..';
+import { useRouter } from "next/router";
+import { Navigator } from "..";
 
 const FrameNavigator = () => {
   const router = useRouter();
@@ -9,10 +9,9 @@ const FrameNavigator = () => {
   };
 
   switch (router.pathname) {
-    case '/':
-    case '/template':
-    case '/mate':
-    case '/schedule':
+    case "/":
+    case "/bambi":
+    case "/profile":
       return <Navigator curRoute={router.pathname} handleRoute={handleRoute} />;
     default:
       return <></>;

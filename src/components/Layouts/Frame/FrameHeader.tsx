@@ -24,6 +24,8 @@ const FrameHeader = () => {
     case "/login":
       return <></>;
     case "/":
+    case "/profile":
+    case "/bambi":
       return <TitleHeader mypageHandler={handleMyPage} />;
     case "/signup":
       return <NavHeader title={headerTitle} onBack={handleSignoutBack} />;
