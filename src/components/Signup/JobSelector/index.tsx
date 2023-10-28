@@ -4,7 +4,6 @@ import { Title } from "@/components/Layouts";
 import Carousel from "@/components/Carousel";
 import { JOBS } from "@/assets/svg/data/jobs";
 import { EmblaOptionsType } from "embla-carousel-react";
-import { css } from "@emotion/react";
 import { flex, transform } from "@/styles/tokens";
 import { mq } from "@/styles/breakpoints";
 import styled from "@emotion/styled";
