@@ -34,7 +34,7 @@ const Title = ({ title, subtitle, animated, ...props }: Props) => {
 };
 
 const TitleWrapper = styled.div`
-  ${flex("column", "start", "start", 1.1)};
+  ${flex("column", "start", "start", 0.8)};
   white-space: pre-line;
   word-break: keep-all;
   position: relative;

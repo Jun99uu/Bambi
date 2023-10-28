@@ -12,4 +12,10 @@ declare module "Auth" {
     handleChangeInput: (event: ChangeEvent<HTMLInputElement>) => void;
     handleChangeValue: (key: string, value: string) => void;
   }
+
+  export type CarouselContent = {
+    title: string;
+    img: string;
+    keyword: string;
+  };
 }

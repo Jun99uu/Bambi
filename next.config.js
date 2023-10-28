@@ -6,6 +6,10 @@ const nextConfig = {
   experimental: {
     forceSwcTransforms: true,
   },
+  images: {
+    domains: ["i.pinimg.com", "images.unsplash.com"],
+    unoptimized: true,
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,

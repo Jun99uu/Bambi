@@ -1,8 +1,8 @@
 import { TextInput } from "@/components/Field";
 import { Title } from "@/components/Layouts";
-import { flex } from "@/styles/tokens";
-import styled from "@emotion/styled";
 import { StageProps } from "Auth";
+import { Container } from "../common";
+import { injectAnimation } from "@/styles/animations";
 
 const NicknameInput = ({ values, handleChangeInput }: StageProps) => {
   const config = {
@@ -15,6 +15,7 @@ const NicknameInput = ({ values, handleChangeInput }: StageProps) => {
     <Container>
       <Title {...config} />
       <TextInput
+        containerStyle={injectAnimation("fadeInTopDown", "0.8s", "linear")}
         max={6}
         value={values.nickname}
         onChange={handleChangeInput}
@@ -24,10 +25,5 @@ const NicknameInput = ({ values, handleChangeInput }: StageProps) => {
     </Container>
   );
 };
-
-const Container = styled.div`
-  width: 100%;
-  ${flex("column", "start", "start", 4)};
-`;
 
 export default NicknameInput;

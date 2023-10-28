@@ -1,18 +1,19 @@
 import { COLORS } from "@/styles/colors";
 import { flex, transition } from "@/styles/tokens";
 import { TYPO } from "@/styles/typo";
-import { css } from "@emotion/react";
+import { SerializedStyles, css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { ComponentProps } from "react";
 
 interface Props extends ComponentProps<"input"> {
   max: number;
   value: string;
+  containerStyle?: SerializedStyles;
 }
 
-const TextInput = ({ max, value, ...props }: Props) => {
+const TextInput = ({ max, value, containerStyle, ...props }: Props) => {
   return (
-    <InputContainer>
+    <InputContainer css={containerStyle}>
       <InputWrapper maxLength={max} value={value} {...props} />
       <InputCaption css={value.length >= max && captionStyles.warning}>
         {value.length} / {max}

@@ -66,9 +66,18 @@ export const transition = (duration: string, animationType = "linear") => {
   `;
 };
 
-export const PageContainer = styled.div`
+const paddingStyle = {
+  strong: css`
+    padding: 1rem 2.7rem;
+  `,
+  weak: css`
+    padding: 1rem 0rem;
+  `,
+};
+
+export const PageContainer = styled.div<{ weakPadding?: boolean }>`
   width: 100%;
   height: 100%;
-  padding: 1rem 2.7rem;
   position: relative;
+  ${(props) => (props.weakPadding ? paddingStyle.weak : paddingStyle.strong)};
 `;

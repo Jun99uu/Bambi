@@ -1,6 +1,7 @@
 import { BasicButton } from "@/components/Buttons";
 import { SignupStages } from "@/components/Signup";
 import { useHeader, useInput } from "@/hooks";
+import { mq } from "@/styles/breakpoints";
 import { PageContainer, flex } from "@/styles/tokens";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
@@ -91,7 +92,11 @@ const buttonsConfig = [
 ];
 
 const pageStyle = css`
-  padding-top: 20%;
+  padding-top: 25%;
+
+  ${mq[4]} {
+    padding-top: 20%;
+  }
 `;
 
 const ButtonsWrapper = styled.div`

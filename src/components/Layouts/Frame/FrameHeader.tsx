@@ -17,7 +17,7 @@ const FrameHeader = () => {
 
   const handleSignoutBack = async () => {
     await signOut();
-    router.back();
+    router.replace("/login");
   };
 
   switch (router.pathname) {

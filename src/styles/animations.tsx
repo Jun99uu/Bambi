@@ -14,6 +14,17 @@ const fadeInTopDown = keyframes`
     }
 `;
 
+const fadeInTopDownRelative = keyframes`
+  from{
+      opacity: 0;
+      ${transform("translate(-50%, -1rem)")}
+  }
+  to{
+      opacity: 1;
+      ${transform("translate(-50%, 0rem)")}
+  }
+`;
+
 const fadeInTopDownTranslate = keyframes`
     from{
         opacity: 0;
@@ -112,6 +123,7 @@ const footPrinting = keyframes`
 const animations = {
   fadeInTopDown,
   fadeInTopDownTranslate,
+  fadeInTopDownRelative,
   popUp,
   circleMovingTop: circleMoving.top,
   circleMovingBottom: circleMoving.bottom,
