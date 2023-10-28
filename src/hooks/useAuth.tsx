@@ -1,8 +1,11 @@
-import { signIn, useSession } from "next-auth/react";
+import AuthApi from "@/apis/auth";
+import { AdditionalData } from "Auth";
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
 const useAuth = () => {
+  const authApi = new AuthApi();
   const { data: session, status } = useSession();
   const router = useRouter();
 
@@ -12,6 +15,10 @@ const useAuth = () => {
 
   const redirectSignupPage = () => {
     router.replace("/signup");
+  };
+
+  const redirectHomePage = () => {
+    router.replace("/");
   };
 
   const unAuthPathCheck = (pathname: string) => {
@@ -28,16 +35,33 @@ const useAuth = () => {
     return false;
   };
 
+  const signupAdditionalInfo = async (data: AdditionalData) => {
+    try {
+      await authApi.signup(data);
+      return true;
+    } catch (err) {
+      console.log(err);
+      return false;
+    }
+  };
+
   useEffect(() => {
     if (status === "unauthenticated") redirectLoginPage();
     if (status === "authenticated" && !isAuth()) redirectSignupPage();
+    if (
+      status === "authenticated" &&
+      isAuth() &&
+      unAuthPathCheck(router.pathname)
+    )
+      redirectHomePage();
   }, [status]);
 
   return {
     session,
     status,
     redirectLoginPage,
-    isAuth,
+    redirectHomePage,
+    signupAdditionalInfo,
   };
 };
 

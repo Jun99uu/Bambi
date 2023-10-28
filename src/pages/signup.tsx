@@ -1,6 +1,6 @@
 import { BasicButton } from "@/components/Buttons";
 import { SignupStages } from "@/components/Signup";
-import { useHeader, useInput } from "@/hooks";
+import { useAuth, useHeader, useInput } from "@/hooks";
 import { mq } from "@/styles/breakpoints";
 import { PageContainer, flex } from "@/styles/tokens";
 import { css } from "@emotion/react";
@@ -13,6 +13,7 @@ const Signup = () => {
   const [stage, setStage] = useState(0);
   const { values, handleChangeValue, handleChangeInput } =
     useInput<AdditionalData>({ nickname: "", job: "", taste: "" });
+  const { signupAdditionalInfo } = useAuth();
 
   const CurStage = SignupStages[stage];
 
@@ -25,7 +26,7 @@ const Signup = () => {
         values.job !== "" && setStage((prev) => prev + 1);
         break;
       case 2:
-        values.taste !== "" && setStage((prev) => prev + 1);
+        signupAdditionalInfo(values);
         break;
       default:
         break;
