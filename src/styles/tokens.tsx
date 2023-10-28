@@ -1,5 +1,6 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
+import { mq } from "./breakpoints";
 
 type Direction = "row" | "column";
 type JustifyContent =
@@ -80,4 +81,8 @@ export const PageContainer = styled.div<{ weakPadding?: boolean }>`
   height: 100%;
   position: relative;
   ${(props) => (props.weakPadding ? paddingStyle.weak : paddingStyle.strong)};
+`;
+
+export const pageStyle = css`
+  padding-top: 7rem;
 `;
