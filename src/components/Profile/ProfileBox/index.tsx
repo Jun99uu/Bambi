@@ -33,7 +33,7 @@ const ProfileBox = () => {
         <span css={textStyles.title}>{profileData.nickname}</span>
         <span
           css={textStyles.subtitle}
-        >{`${profileData.taste}을 좋아하는, ${profileData.job}`}</span>
+        >{`${profileData.taste}을 좋아하는,\n${profileData.job}`}</span>
       </InfoWrapper>
     </BoxWrapper>
   );
@@ -41,7 +41,7 @@ const ProfileBox = () => {
 
 const BoxWrapper = styled.div`
   width: 100%;
-  padding: 2rem;
+  padding: 2rem 0.2rem;
   ${flex("row", "start", "center", 1.5)};
 `;
 
@@ -51,8 +51,8 @@ const InfoWrapper = styled.div`
 `;
 
 const profileImage = css`
-  width: 6rem;
-  height: 6rem;
+  width: 6.5rem;
+  height: 6.5rem;
   border-radius: 1rem;
 `;
 
@@ -64,6 +64,7 @@ const textStyles = {
   subtitle: css`
     ${TYPO.text2};
     color: ${COLORS.grey25};
+    white-space: pre-line;
   `,
 };
 
