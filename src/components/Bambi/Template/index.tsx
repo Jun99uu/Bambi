@@ -10,11 +10,26 @@ import { injectAnimation } from "@/styles/animations";
 interface Props extends ComponentProps<"div"> {
   question: QuestionType;
   stage: number;
+  isTransition: boolean;
+  isFinish: boolean;
+  pushAnswer: (choice: string) => void;
 }
 
-const Template = ({ question, stage, ...props }: Props) => {
+const Template = ({
+  question,
+  stage,
+  isTransition,
+  isFinish,
+  pushAnswer,
+  ...props
+}: Props) => {
+  const getAnimation = (isTransition: boolean, isFinish: boolean) => {
+    if (isFinish) return injectAnimation("finishStage", "1.5s", "ease");
+    if (isTransition) return injectAnimation("nextStage", "1.5s", "ease");
+    if (!isTransition) return injectAnimation("appearStage", "1.5s", "ease");
+  };
   return (
-    <Container {...props}>
+    <Container css={getAnimation(isTransition, isFinish)} {...props}>
       <TitleContainer>
         <Title
           title={`Q${stage + 1}`}
@@ -25,7 +40,7 @@ const Template = ({ question, stage, ...props }: Props) => {
       <AnswerBox
         answers={question.answers}
         isTransition
-        handleSelect={(category: string) => {}}
+        handleSelect={pushAnswer}
       />
     </Container>
   );

@@ -20,7 +20,12 @@ const AnswerBox = ({
   return (
     <AnswerContainer {...props}>
       {answers.map((answer) => (
-        <AnswerButton key={answer.text}>{answer.text}</AnswerButton>
+        <AnswerButton
+          onClick={() => handleSelect(answer.category)}
+          key={answer.text}
+        >
+          {answer.text}
+        </AnswerButton>
       ))}
     </AnswerContainer>
   );

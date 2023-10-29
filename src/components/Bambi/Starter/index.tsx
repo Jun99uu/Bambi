@@ -39,7 +39,10 @@ const Starter = ({ starting, handleStart, isTransition, ...props }: Props) => {
   };
 
   return (
-    <Container {...props}>
+    <Container
+      css={isTransition && injectAnimation("nextStage", "1.5s", "ease")}
+      {...props}
+    >
       <TitleContainer>
         <Title
           title="어서오세요! 밤비 상담소입니다."
@@ -65,6 +68,7 @@ const Starter = ({ starting, handleStart, isTransition, ...props }: Props) => {
 const Container = styled.div`
   width: 100%;
   height: 100%;
+  position: relative;
   ${flex("column", "end", "center", 10)};
 `;
 

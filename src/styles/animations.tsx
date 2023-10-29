@@ -159,6 +159,47 @@ const modalAnimations = {
   `,
 };
 
+const appearStage = keyframes`
+  0%{
+    opacity: 0;
+    ${transform("scale(0.9) translate(10rem, 0rem)")}
+  }
+  50%{
+    opacity: 1;
+    ${transform("scale(0.9) translate(0rem, 0rem)")}
+  }
+  100%{
+    opacity: 1;
+    ${transform("scale(1)")};
+  }
+`;
+
+const nextStage = keyframes`
+  0%{
+    opacity: 1;
+    ${transform("scale(1)")};
+  }
+  50%{
+    opacity: 1;
+    ${transform("scale(0.9) translate(0rem, 0rem)")}
+  }
+  100%{
+    opacity: 0;
+    ${transform("scale(0.9) translate(-10rem, 0rem)")}
+  }
+`;
+
+const finishStage = keyframes`
+  0%{
+    opacity: 1;
+    ${transform("scale(1)")};
+  }
+  100%{
+    opacity: 0;
+    ${transform("scale(0.9)")}
+  }
+`;
+
 const animations = {
   fadeInTopDown,
   fadeInTopDownTranslate,
@@ -173,6 +214,9 @@ const animations = {
   modalBackgroundDisappear: modalAnimations.disappearBg,
   modalAppear: modalAnimations.appearModal,
   modalDisappear: modalAnimations.disappearModal,
+  appearStage,
+  nextStage,
+  finishStage,
 };
 
 export const injectAnimation = (
