@@ -13,11 +13,11 @@ const Signup = () => {
   const [stage, setStage] = useState(0);
   const { values, handleChangeValue, handleChangeInput } =
     useInput<AdditionalData>({ nickname: "", job: "", taste: "" });
-  const { signupAdditionalInfo } = useAuth();
+  const { signupAdditionalInfo, redirectHomePage } = useAuth();
 
   const CurStage = SignupStages[stage];
 
-  const handleNext = () => {
+  const handleNext = async () => {
     switch (stage) {
       case 0:
         values.nickname !== "" && setStage((prev) => prev + 1);
@@ -26,7 +26,8 @@ const Signup = () => {
         values.job !== "" && setStage((prev) => prev + 1);
         break;
       case 2:
-        signupAdditionalInfo(values);
+        const res = await signupAdditionalInfo(values);
+        if (res) redirectHomePage();
         break;
       default:
         break;

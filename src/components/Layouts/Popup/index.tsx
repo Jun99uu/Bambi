@@ -107,7 +107,7 @@ const ButtonWrapper = styled.div`
 const buttonStyles = {
   common: css`
     width: 10rem;
-    height: 3rem;
+    height: 4rem;
     border-radius: 5rem;
     border: none;
     outline: none;

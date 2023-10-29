@@ -45,6 +45,16 @@ const useAuth = () => {
     }
   };
 
+  const removeAccount = async () => {
+    try {
+      await authApi.removeAccount();
+      return true;
+    } catch (err) {
+      console.log(err);
+      return false;
+    }
+  };
+
   useEffect(() => {
     if (status === "unauthenticated") redirectLoginPage();
     if (status === "authenticated" && !isAuth()) redirectSignupPage();
@@ -62,6 +72,7 @@ const useAuth = () => {
     redirectLoginPage,
     redirectHomePage,
     signupAdditionalInfo,
+    removeAccount,
   };
 };
 

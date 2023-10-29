@@ -1,6 +1,6 @@
 import { Popup } from "@/components/Layouts";
 import { LineButton, ProfileBox } from "@/components/Profile";
-import { useTransition } from "@/hooks";
+import { useAuth, useTransition } from "@/hooks";
 import { COLORS } from "@/styles/colors";
 import { PageContainer, pageStyle } from "@/styles/tokens";
 import styled from "@emotion/styled";
@@ -14,6 +14,7 @@ interface ModalConfig {
 }
 
 const Profile = () => {
+  const { removeAccount } = useAuth();
   const { isMount, handleOpen, handleClose, isTransition } = useTransition(500);
   const [modalConfig, setModalConfig] = useState<ModalConfig>({
     title: "",
@@ -55,7 +56,10 @@ const Profile = () => {
           title:
             "탈퇴하면 계정을 다시 복구할 수 없습니다.\n정말 탈퇴하시겠습니까?",
           buttonContents: ["취소", "확인"],
-          buttonHandler: () => signOut(),
+          buttonHandler: () => {
+            removeAccount();
+            signOut();
+          },
         });
         handleOpen();
       },
