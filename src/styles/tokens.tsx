@@ -84,5 +84,9 @@ export const PageContainer = styled.div<{ weakPadding?: boolean }>`
 `;
 
 export const pageStyle = css`
-  padding-top: 7rem;
+  padding-top: 10rem;
+
+  ${mq[4]} {
+    padding-top: 7.5rem;
+  }
 `;
