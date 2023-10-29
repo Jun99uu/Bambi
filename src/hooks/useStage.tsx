@@ -2,7 +2,12 @@ import { useState, useEffect } from "react";
 
 export const MAX_STAGE = 6;
 
-export type StartType = "disabled" | "abled" | "loading" | "started";
+export type StartType =
+  | "disabled"
+  | "abled"
+  | "loading"
+  | "started"
+  | "finished";
 
 const useStage = (delay = 1000) => {
   const [starting, setStarting] = useState<StartType>("disabled");
@@ -19,10 +24,17 @@ const useStage = (delay = 1000) => {
     }, delay);
   };
 
+  const handleFinish = () => {
+    setIsFinish(true);
+    timeoutId = setTimeout(() => {
+      setStarting("finished");
+    }, delay);
+  };
+
   const handleNextStage = () => {
     if (isTransition) return;
     if (stage === MAX_STAGE - 1) {
-      setIsFinish(true);
+      handleFinish();
       return;
     }
     if (starting === "abled") {

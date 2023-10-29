@@ -46,7 +46,7 @@ const typo = {
     color: ${COLORS.grey1};
   `,
   subtitle: css`
-    ${TYPO.text1};
+    ${TYPO.title2};
     color: ${COLORS.grey1};
   `,
 };

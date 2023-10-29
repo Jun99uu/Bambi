@@ -22,7 +22,7 @@ const Starter = ({ starting, handleStart, isTransition, ...props }: Props) => {
         return "잠시만 기다려주세요";
       case "disabled":
         return "내일 다시 방문해주세요!";
-      case "started":
+      default:
         return "";
     }
   };

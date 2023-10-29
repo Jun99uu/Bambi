@@ -1,4 +1,4 @@
-import { Starter, Template } from "@/components/Bambi";
+import { Result, Starter, Template } from "@/components/Bambi";
 import { Loading } from "@/components/Layouts";
 import { useHeader, useStage } from "@/hooks";
 import { MAX_STAGE } from "@/hooks/useStage";
@@ -38,7 +38,7 @@ const Talking = () => {
           isTransition={isTransition}
         />
       )}
-      {starting !== "started" && (
+      {starting !== "started" && starting !== "finished" && (
         <Starter
           starting={starting}
           handleStart={handleNextStage}
@@ -46,6 +46,12 @@ const Talking = () => {
         />
       )}
       {starting === "loading" && <Loading />}
+      {starting === "finished" && (
+        <Result
+          img="https://i.pinimg.com/564x/3a/f3/45/3af34598a54a5bdc30cfe547d783613b.jpg"
+          desc="sexy"
+        />
+      )}
     </PageContainer>
   );
 };
