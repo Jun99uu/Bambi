@@ -10,8 +10,22 @@ import { css } from "@emotion/react";
 import { injectAnimation } from "@/styles/animations";
 import { BambiTitle } from "@/components/Bambi";
 import { BasicButton } from "@/components/Buttons";
+import { useTransition } from "@/hooks";
+import { Loading } from "@/components/Layouts";
+import { useRouter } from "next/router";
 
 const Bambi = () => {
+  const router = useRouter();
+  const { isMount, handleOpen, handleClose, isTransition } = useTransition();
+
+  const startTalk = () => {
+    handleOpen();
+    setTimeout(() => {
+      handleClose();
+      router.push("/talking");
+    }, 2000);
+  };
+
   return (
     <PageContainer css={[pageStyleTopBottom, additionalPageStyle]}>
       <BambiTitle
@@ -31,8 +45,10 @@ const Bambi = () => {
       />
       <BasicButton
         title="밤비와 대화 시작하기"
+        onClick={startTalk}
         css={injectAnimation("modalBackgroundAppear", "0.5s")}
       />
+      {isMount && <Loading isTransition={isTransition} />}
     </PageContainer>
   );
 };
