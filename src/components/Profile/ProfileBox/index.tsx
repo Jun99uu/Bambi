@@ -51,8 +51,8 @@ const InfoWrapper = styled.div`
 `;
 
 const profileImage = css`
-  width: 6.5rem;
-  height: 6.5rem;
+  width: 7rem;
+  height: 7rem;
   border-radius: 1rem;
 `;
 
