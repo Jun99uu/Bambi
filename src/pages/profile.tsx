@@ -2,7 +2,7 @@ import { Popup } from "@/components/Layouts";
 import { LineButton, ProfileBox } from "@/components/Profile";
 import { useAuth, useTransition } from "@/hooks";
 import { COLORS } from "@/styles/colors";
-import { PageContainer, pageStyle } from "@/styles/tokens";
+import { PageContainer, pageStyleTopBottom } from "@/styles/tokens";
 import styled from "@emotion/styled";
 import { signOut } from "next-auth/react";
 import { useState } from "react";
@@ -67,7 +67,7 @@ const Profile = () => {
   ];
 
   return (
-    <PageContainer css={pageStyle}>
+    <PageContainer css={pageStyleTopBottom}>
       <ProfileBox />
       <Line />
       {policies.map((policy) => (

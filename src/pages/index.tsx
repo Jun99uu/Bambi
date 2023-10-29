@@ -1,5 +1,5 @@
 import { useAuth, useImage } from "@/hooks";
-import { PageContainer, pageStyle } from "@/styles/tokens";
+import { PageContainer, pageStyleTopBottom } from "@/styles/tokens";
 import { getQuote } from "@/utils/getQuote";
 import dynamic from "next/dynamic";
 
@@ -11,7 +11,7 @@ const Home = () => {
   const { session } = useAuth();
 
   return (
-    <PageContainer css={pageStyle}>
+    <PageContainer css={pageStyleTopBottom}>
       {typeof window !== "undefined" && (
         <Title
           title={`안녕 ${session?.user.nickname}!`}

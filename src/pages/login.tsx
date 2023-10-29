@@ -2,7 +2,7 @@ import { LoginButton } from "@/components/Buttons";
 import { Logo } from "@/components/Login";
 import { useAuth } from "@/hooks";
 import { COLORS } from "@/styles/colors";
-import { PageContainer, flex } from "@/styles/tokens";
+import { PageContainer, flex, pageStyleTop } from "@/styles/tokens";
 import { TYPO } from "@/styles/typo";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
@@ -10,7 +10,7 @@ import { signIn } from "next-auth/react";
 
 const Login = () => {
   return (
-    <PageContainer css={pageStyle}>
+    <PageContainer css={pageStyleTop}>
       <Logo />
       <ButtonsWrapper>
         <LoginButton socialType="KAKAO" onClick={() => signIn("kakao")} />

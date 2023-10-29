@@ -83,8 +83,17 @@ export const PageContainer = styled.div<{ weakPadding?: boolean }>`
   ${(props) => (props.weakPadding ? paddingStyle.weak : paddingStyle.strong)};
 `;
 
-export const pageStyle = css`
+export const pageStyleTop = css`
   padding-top: 10rem;
+
+  ${mq[4]} {
+    padding-top: 7.5rem;
+  }
+`;
+
+export const pageStyleTopBottom = css`
+  padding-top: 10rem;
+  padding-bottom: 7rem;
 
   ${mq[4]} {
     padding-top: 7.5rem;
