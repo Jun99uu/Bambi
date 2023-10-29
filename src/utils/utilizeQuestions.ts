@@ -1,3 +1,11 @@
+import { questions } from "@/assets/svg/data/questions";
+import { QuestionType } from "Images";
+
+export const getRandomQuestions = (num: number): QuestionType[] => {
+  const shuffledQuestions = [...questions].sort(() => 0.5 - Math.random());
+  return shuffledQuestions.slice(0, num);
+};
+
 /**
  * 가장 많이 등장한 카테고리 뽑아내기
  */

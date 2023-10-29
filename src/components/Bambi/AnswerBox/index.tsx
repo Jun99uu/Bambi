@@ -1,5 +1,6 @@
 import { COLORS } from "@/styles/colors";
 import { flex } from "@/styles/tokens";
+import { TYPO } from "@/styles/typo";
 import styled from "@emotion/styled";
 import { AnswerType } from "Images";
 import { ComponentProps } from "react";
@@ -37,6 +38,7 @@ const AnswerButton = styled.button`
   border-radius: 1.5rem;
   cursor: pointer;
   background: none;
+  ${TYPO.text2};
 `;
 
 export default AnswerBox;

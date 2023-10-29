@@ -9,20 +9,16 @@ import { injectAnimation } from "@/styles/animations";
 
 interface Props extends ComponentProps<"div"> {
   question: QuestionType;
+  stage: number;
 }
 
-const Template = ({ question, ...props }: Props) => {
+const Template = ({ question, stage, ...props }: Props) => {
   return (
     <Container {...props}>
       <TitleContainer>
         <Title
-          title="어서오세요! 밤비 상담소입니다."
-          subtitles={[
-            "지금부터 6개의 질문을 드릴거예요.",
-            "질문에 솔직하게 답변해준다면,",
-            "여러분의 감정을 그림으로 그려드려요.",
-            "밤비 상담소는 하루에 한 번 이용이 가능합니다!",
-          ]}
+          title={`Q${stage + 1}`}
+          subtitles={[question.question]}
           css={titleStyle}
         />
       </TitleContainer>
@@ -50,7 +46,6 @@ const TitleContainer = styled.div`
 const titleStyle = css`
   width: 100%;
   position: relative;
-  ${injectAnimation("fadeInTopDown", "0.5s")};
 `;
 
 export default Template;

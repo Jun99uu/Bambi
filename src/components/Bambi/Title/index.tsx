@@ -1,4 +1,3 @@
-import { BasicButton } from "@/components/Buttons";
 import { COLORS } from "@/styles/colors";
 import { flex } from "@/styles/tokens";
 import { TYPO } from "@/styles/typo";

@@ -9,10 +9,10 @@ import Lottie from "lottie-react";
 import catloading from "@/assets/lotties/catloading.json";
 
 interface Props extends ComponentProps<"div"> {
-  isTransition: boolean;
+  isTransition?: boolean;
 }
 
-const Loading = ({ title, isTransition, ...props }: Props) => {
+const Loading = ({ isTransition, ...props }: Props) => {
   const { vh } = useVh();
 
   const backgroundStyle = css`

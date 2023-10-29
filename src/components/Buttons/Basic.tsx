@@ -1,5 +1,5 @@
 import { COLORS } from "@/styles/colors";
-import { flex } from "@/styles/tokens";
+import { flex, transition } from "@/styles/tokens";
 import { TYPO } from "@/styles/typo";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
@@ -26,6 +26,11 @@ const ButtonWrapper = styled.button`
   ${flex("row", "center", "center", 0)};
   border: none;
   ${TYPO.title2};
+  ${transition("0.5s")};
+
+  &:disabled {
+    cursor: default;
+  }
 `;
 
 const buttonStyles = {

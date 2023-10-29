@@ -1,14 +1,21 @@
-import { questions } from "@/assets/svg/data/questions";
-import { Template } from "@/components/Bambi";
-import { useHeader } from "@/hooks";
+import { Starter, Template } from "@/components/Bambi";
+import { Loading } from "@/components/Layouts";
+import { useHeader, useStage } from "@/hooks";
+import { MAX_STAGE } from "@/hooks/useStage";
 import { mq } from "@/styles/breakpoints";
 import { PageContainer } from "@/styles/tokens";
+import { getRandomQuestions } from "@/utils/utilizeQuestions";
 import { css } from "@emotion/react";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo } from "react";
 
 const Talking = () => {
   const { setHeader } = useHeader();
-  const [stage, setStage] = useState(0);
+  const { starting, isTransition, stage, handleNextStage, isFinish } =
+    useStage();
+
+  const myQuestions = useMemo(() => {
+    return getRandomQuestions(MAX_STAGE);
+  }, []);
 
   useEffect(() => {
     setHeader("밤비 상담소");
@@ -16,7 +23,17 @@ const Talking = () => {
 
   return (
     <PageContainer css={pageStyle}>
-      <Template question={questions[stage]} />
+      {starting === "started" && (
+        <Template question={myQuestions[stage]} stage={stage} />
+      )}
+      {starting !== "started" && (
+        <Starter
+          starting={starting}
+          handleStart={handleNextStage}
+          isTransition={isTransition}
+        />
+      )}
+      {starting === "loading" && <Loading />}
     </PageContainer>
   );
 };
