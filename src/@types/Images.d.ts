@@ -5,4 +5,14 @@ declare module "Images" {
     createdat: string;
     description: string;
   };
+
+  export type QuestionType = {
+    question: string;
+    answers: AnswerType[];
+  };
+
+  export type AnswerType = {
+    text: string;
+    category: string;
+  };
 }

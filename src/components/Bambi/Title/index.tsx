@@ -1,5 +1,4 @@
 import { BasicButton } from "@/components/Buttons";
-import { injectAnimation } from "@/styles/animations";
 import { COLORS } from "@/styles/colors";
 import { flex } from "@/styles/tokens";
 import { TYPO } from "@/styles/typo";
@@ -32,7 +31,7 @@ const Title = ({ title, subtitles, ...props }: Props) => {
 };
 
 const TitleWrapper = styled.div`
-  ${flex("column", "start", "center", 1)};
+  ${flex("column", "start", "center", 2)};
   white-space: pre-line;
   word-break: keep-all;
   position: relative;
