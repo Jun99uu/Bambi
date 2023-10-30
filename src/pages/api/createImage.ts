@@ -22,14 +22,11 @@ export default async function handler(
   }
 
   try {
-    const { data, error } = await supabase
-      .from("users")
-      .update({
-        user_id: session.user.user_id,
-        url: image,
-        description: desc,
-      })
-      .eq("user_id", session.user.user_id);
+    const { data, error } = await supabase.from("images").insert({
+      user_id: session.user.user_id,
+      url: image,
+      description: desc,
+    });
 
     if (error) {
       throw error;

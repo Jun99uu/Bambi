@@ -1,4 +1,5 @@
 import { BasicButton } from "@/components/Buttons";
+import { Skeleton } from "@/components/Layouts";
 import { useAuth } from "@/hooks";
 import { injectAnimation } from "@/styles/animations";
 import { mq } from "@/styles/breakpoints";
@@ -13,19 +14,33 @@ import { ComponentProps } from "react";
 interface Props extends ComponentProps<"div"> {
   img: string;
   desc: string;
+  isLoading: boolean;
 }
 
-const Result = ({ img, desc, ...props }: Props) => {
+const Result = ({ img, desc, isLoading, ...props }: Props) => {
   const { redirectHomePage } = useAuth();
   return (
     <Container {...props}>
       <Topper>
-        <Image src={img} alt="desc" width={100} height={100} css={imgStyle} />
+        {isLoading ? (
+          <Skeleton css={imgStyle} />
+        ) : (
+          <Image src={img} alt="desc" width={100} height={100} css={imgStyle} />
+        )}
         <DescContainer>
-          <span css={descStyles.title}>{desc}</span>
-          <span
-            css={descStyles.content}
-          >{`이미지를 꾹 눌러 저장해보세요!\n지금 저장하지 않아도, 기록 탭에서 확인할 수 있어요.`}</span>
+          {isLoading ? (
+            <>
+              <Skeleton css={skeletonStyles.title} />
+              <Skeleton css={skeletonStyles.subtitle} />
+            </>
+          ) : (
+            <>
+              <span css={descStyles.title}>{desc}</span>
+              <span
+                css={descStyles.content}
+              >{`이미지를 꾹 눌러 저장해보세요!\n지금 저장하지 않아도, 기록 탭에서 확인할 수 있어요.`}</span>
+            </>
+          )}
         </DescContainer>
       </Topper>
       <BasicButton title={"홈 화면으로"} onClick={redirectHomePage} />
@@ -88,5 +103,18 @@ const imgStyle = css`
     height: 35rem;
   }
 `;
+
+const skeletonStyles = {
+  title: css`
+    width: 50%;
+    height: 5rem;
+    border-radius: 1rem;
+  `,
+  subtitle: css`
+    width: 80%;
+    height: 3rem;
+    border-radius: 0.5rem;
+  `,
+};
 
 export default Result;

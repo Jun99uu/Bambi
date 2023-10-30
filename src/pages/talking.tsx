@@ -10,8 +10,15 @@ import { useEffect, useMemo } from "react";
 
 const Talking = () => {
   const { setHeader } = useHeader();
-  const { starting, isTransition, stage, handleNextStage, isFinish } =
-    useStage(1500);
+  const {
+    starting,
+    isTransition,
+    stage,
+    handleNextStage,
+    isFinish,
+    result,
+    isLoading,
+  } = useStage(1500);
 
   const myQuestions = useMemo(() => {
     return getRandomQuestions(MAX_STAGE);
@@ -40,12 +47,7 @@ const Talking = () => {
         />
       )}
       {starting === "loading" && <Loading />}
-      {starting === "finished" && (
-        <Result
-          img="https://i.pinimg.com/564x/3a/f3/45/3af34598a54a5bdc30cfe547d783613b.jpg"
-          desc="sexy"
-        />
-      )}
+      {starting === "finished" && <Result {...result} isLoading={isLoading} />}
     </PageContainer>
   );
 };
