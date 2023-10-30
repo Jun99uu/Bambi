@@ -6,22 +6,16 @@ import { mq } from "@/styles/breakpoints";
 import { PageContainer } from "@/styles/tokens";
 import { getRandomQuestions } from "@/utils/utilizeQuestions";
 import { css } from "@emotion/react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo } from "react";
 
 const Talking = () => {
   const { setHeader } = useHeader();
   const { starting, isTransition, stage, handleNextStage, isFinish } =
     useStage(1500);
-  const [selected, setSelected] = useState<string[]>([]);
 
   const myQuestions = useMemo(() => {
     return getRandomQuestions(MAX_STAGE);
   }, []);
-
-  const pushAnswer = (choice: string) => {
-    setSelected((prev) => [...prev, choice]);
-    handleNextStage();
-  };
 
   useEffect(() => {
     setHeader("밤비 상담소");
@@ -33,7 +27,7 @@ const Talking = () => {
         <Template
           question={myQuestions[stage]}
           stage={stage}
-          pushAnswer={pushAnswer}
+          pushAnswer={handleNextStage}
           isFinish={isFinish}
           isTransition={isTransition}
         />

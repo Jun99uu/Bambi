@@ -15,4 +15,16 @@ declare module "Images" {
     text: string;
     category: string;
   };
+
+  export type ImageResult = {
+    id: string;
+    images: {
+      id: string;
+      image: string;
+      nsfw_content_detected: boolean | null;
+      nsfw_score: number | null;
+      seed: number;
+    }[];
+    model_version: string;
+  };
 }
