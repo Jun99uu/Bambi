@@ -1,10 +1,12 @@
 import { seos } from "@/assets/seos";
+import { DevoceanPolicy, KarloPolicy } from "@/components/Brand";
 import { Popup } from "@/components/Layouts";
 import { LineButton, ProfileBox } from "@/components/Profile";
 import Seo from "@/components/Seo";
 import { useAuth, useTransition } from "@/hooks";
 import { COLORS } from "@/styles/colors";
-import { PageContainer, pageStyleTopBottom } from "@/styles/tokens";
+import { PageContainer, flex, pageStyleTopBottom } from "@/styles/tokens";
+import { handleNewTab, openMail } from "@/utils/utilizeLink";
 import styled from "@emotion/styled";
 import { signOut } from "next-auth/react";
 import { useState } from "react";
@@ -35,7 +37,13 @@ const Profile = () => {
     },
     {
       title: "이용 문의",
-      onClick: () => {},
+      onClick: openMail,
+    },
+    {
+      title: "개발자 정보",
+      onClick: () => {
+        handleNewTab("https://github.com/Jun99uu");
+      },
     },
   ];
 
@@ -87,6 +95,10 @@ const Profile = () => {
           handleClose={handleClose}
         />
       )}
+      <PolicyWrapper>
+        <KarloPolicy />
+        <DevoceanPolicy />
+      </PolicyWrapper>
     </PageContainer>
   );
 };
@@ -96,6 +108,11 @@ const Line = styled.div`
   height: 1px;
   background-color: ${COLORS.grey6};
   margin: 1rem 0rem;
+`;
+
+const PolicyWrapper = styled.div`
+  ${flex("column", "center", "center", 1)};
+  padding: 3rem 0rem;
 `;
 
 export default Profile;
