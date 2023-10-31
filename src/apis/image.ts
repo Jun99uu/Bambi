@@ -3,8 +3,8 @@ import { get, post } from "./AxiosCreate";
 import { ImageResult, ImageType } from "Images";
 
 class ImageApi {
-  getImageList = async (): Promise<ImageType[]> => {
-    const data: AxiosResponse<ImageType[]> = await get("/getImages");
+  getImageList = async (): Promise<any> => {
+    const data = await axios.get("/api/getImages");
     return data.data;
   };
 

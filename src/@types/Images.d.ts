@@ -2,8 +2,9 @@ declare module "Images" {
   export type ImageType = {
     imageid: number;
     user_id: string;
-    createdat: string;
     description: string;
+    url: string;
+    created_at: string;
   };
 
   export type QuestionType = {
