@@ -83,6 +83,7 @@ const ImageDetail = ({
 const PopupBox = styled.div`
   width: 90%;
   min-width: 45vw;
+  max-width: 60vw;
   padding: 1rem;
   background-color: white;
   border-radius: 2rem;
