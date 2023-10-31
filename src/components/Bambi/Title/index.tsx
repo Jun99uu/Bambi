@@ -22,7 +22,9 @@ const Title = ({ title, subtitles, ...props }: Props) => {
       <span css={typo.title}>{title}</span>
       <SubtitlesWrapper>
         {subtitles.map((subtitle) => (
-          <span css={typo.subtitle}>{subtitle}</span>
+          <span css={typo.subtitle} key={subtitle}>
+            {subtitle}
+          </span>
         ))}
       </SubtitlesWrapper>
     </TitleWrapper>
