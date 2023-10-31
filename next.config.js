@@ -1,5 +1,14 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const runtimeCaching = require("next-pwa/cache");
+const withPWA = require("next-pwa")({
+  dest: "public",
+  register: true,
+  skipWaiting: true,
+  runtimeCaching,
+});
+
+const nextConfig = withPWA({
+  reactStrictMode: false,
   compiler: {
     emotion: true,
   },
@@ -18,6 +27,6 @@ const nextConfig = {
 
     return config;
   },
-};
+});
 
 module.exports = nextConfig;
