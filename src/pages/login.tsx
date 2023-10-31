@@ -1,5 +1,7 @@
+import { seos } from "@/assets/seos";
 import { LoginButton } from "@/components/Buttons";
 import { Logo } from "@/components/Login";
+import Seo from "@/components/Seo";
 import { useAuth } from "@/hooks";
 import { COLORS } from "@/styles/colors";
 import { PageContainer, flex } from "@/styles/tokens";
@@ -11,6 +13,7 @@ import { signIn } from "next-auth/react";
 const Login = () => {
   return (
     <PageContainer css={pageStyle}>
+      <Seo {...seos.login} />
       <Logo />
       <ButtonsWrapper>
         <LoginButton socialType="KAKAO" onClick={() => signIn("kakao")} />

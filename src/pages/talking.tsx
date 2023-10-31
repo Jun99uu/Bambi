@@ -1,5 +1,7 @@
+import { seos } from "@/assets/seos";
 import { Result, Starter, Template } from "@/components/Bambi";
 import { Loading } from "@/components/Layouts";
+import Seo from "@/components/Seo";
 import { useHeader, useStage } from "@/hooks";
 import { MAX_STAGE } from "@/hooks/useStage";
 import { mq } from "@/styles/breakpoints";
@@ -30,6 +32,7 @@ const Talking = () => {
 
   return (
     <PageContainer css={pageStyle}>
+      <Seo {...seos.talking} />
       {starting === "started" && (
         <Template
           question={myQuestions[stage]}

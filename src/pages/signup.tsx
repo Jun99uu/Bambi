@@ -1,4 +1,6 @@
+import { seos } from "@/assets/seos";
 import { BasicButton } from "@/components/Buttons";
+import Seo from "@/components/Seo";
 import { SignupStages } from "@/components/Signup";
 import { useAuth, useHeader, useInput } from "@/hooks";
 import { mq } from "@/styles/breakpoints";
@@ -55,6 +57,7 @@ const Signup = () => {
 
   return (
     <PageContainer css={pageStyle}>
+      <Seo {...seos.signup} />
       <CurStage
         values={values}
         handleChangeInput={handleChangeInput}

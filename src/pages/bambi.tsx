@@ -13,6 +13,8 @@ import { BasicButton } from "@/components/Buttons";
 import { useTransition } from "@/hooks";
 import { Loading } from "@/components/Layouts";
 import { useRouter } from "next/router";
+import Seo from "@/components/Seo";
+import { seos } from "@/assets/seos";
 
 const Bambi = () => {
   const router = useRouter();
@@ -28,6 +30,7 @@ const Bambi = () => {
 
   return (
     <PageContainer css={[pageStyleTopBottom, additionalPageStyle]}>
+      <Seo {...seos.bambi} />
       <BambiTitle
         title="오늘 하루는 어땠어?"
         subtitles={[

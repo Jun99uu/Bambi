@@ -1,3 +1,5 @@
+import { seos } from "@/assets/seos";
+import Seo from "@/components/Seo";
 import { useAuth, useImage } from "@/hooks";
 import { PageContainer, flex, pageStyleTopBottom } from "@/styles/tokens";
 import { getQuote } from "@/utils/getQuote";
@@ -22,6 +24,7 @@ const Home = () => {
 
   return (
     <PageContainer css={[pageStyleTopBottom, homeStyle]}>
+      <Seo {...seos.index} />
       {typeof window !== "undefined" && (
         <>
           <Title

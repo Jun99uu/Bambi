@@ -1,5 +1,7 @@
+import { seos } from "@/assets/seos";
 import { Popup } from "@/components/Layouts";
 import { LineButton, ProfileBox } from "@/components/Profile";
+import Seo from "@/components/Seo";
 import { useAuth, useTransition } from "@/hooks";
 import { COLORS } from "@/styles/colors";
 import { PageContainer, pageStyleTopBottom } from "@/styles/tokens";
@@ -68,6 +70,7 @@ const Profile = () => {
 
   return (
     <PageContainer css={pageStyleTopBottom}>
+      <Seo {...seos.profile} />
       <ProfileBox />
       <Line />
       {policies.map((policy) => (
