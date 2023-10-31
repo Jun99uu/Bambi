@@ -3,6 +3,7 @@ import { ImageType } from "Images";
 import { ComponentProps } from "react";
 import Item from "./Item";
 import ImageSkeleton from "./ImageSkeleton";
+import { Empty } from "..";
 
 interface Props extends ComponentProps<"div"> {
   images: ImageType[];
@@ -12,7 +13,9 @@ interface Props extends ComponentProps<"div"> {
 const newArr = new Array(5).fill(1);
 
 const ImageList = ({ images, isLoading, ...props }: Props) => {
-  return (
+  return !isLoading && !!!images.length ? (
+    <Empty />
+  ) : (
     <Container {...props}>
       {isLoading
         ? newArr.map((_) => <ImageSkeleton />)
