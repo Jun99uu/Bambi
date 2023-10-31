@@ -27,7 +27,6 @@ const Seo = ({ title, desc, ogDesc }: headProps) => {
         />
         <meta name="og:description" content={ogDesc} />
         <meta name="og:type" content="website" />
-        <meta name="og:image" content="/og.png" />
         <meta name="twitter:title" content="BAMBI" />
       </Head>
     </>
