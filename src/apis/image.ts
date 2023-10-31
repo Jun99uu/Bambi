@@ -35,6 +35,14 @@ class ImageApi {
     });
     return data;
   };
+
+  /**
+   * 가장 최근 그림이 오늘날짜인가? -> true면 오늘 이미 그린거임
+   */
+  getPaintedToday = async (): Promise<any> => {
+    const data = await axios.get("/api/today");
+    return data.data;
+  };
 }
 
 export default ImageApi;

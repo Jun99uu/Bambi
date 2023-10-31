@@ -24,6 +24,16 @@ const useStage = (delay = 1000) => {
   const [isTransition, setIsTransition] = useState(false);
   let timeoutId: NodeJS.Timeout | null = null;
 
+  const checkToday = async () => {
+    try {
+      const painted = await imageApi.getPaintedToday();
+      if (painted.isLatestToday) setStarting("disabled");
+      else setStarting("abled");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const postImage = async () => {
     setIsLoading(true);
     try {
@@ -79,7 +89,7 @@ const useStage = (delay = 1000) => {
   };
 
   useEffect(() => {
-    setStarting("abled"); //TODO 시작 가능인지 검사하기
+    checkToday();
     return () => {
       if (timeoutId) {
         clearTimeout(timeoutId);
