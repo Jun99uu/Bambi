@@ -5,14 +5,12 @@ import { useOutsideClose, useVh } from "@/hooks";
 import { mq } from "@/styles/breakpoints";
 import { flex } from "@/styles/tokens";
 import { injectAnimation } from "@/styles/animations";
-import { TYPO } from "@/styles/typo";
 import { COLORS } from "@/styles/colors";
 import ReactPortal from "@/components/Layouts/Portal";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import { BasicButton } from "@/components/Buttons";
-import { downloadImage } from "@/utils/utilzeImages";
+import { DownloadButton } from "@/components/Buttons";
 
 interface Props extends ComponentProps<"div"> {
   img: string;
@@ -70,9 +68,10 @@ const ImageDetail = ({
           <Circle onClick={handleClose}>
             <FontAwesomeIcon icon={faXmark} css={xStyle} />
           </Circle>
-          <BasicButton
+          <DownloadButton
             title="이미지 저장하기"
-            onClick={() => downloadImage(img, `${date}_${emotion}`)}
+            url={img}
+            fileName={`${date}_${emotion}`}
           />
         </PopupBox>
       </div>
@@ -83,7 +82,7 @@ const ImageDetail = ({
 const PopupBox = styled.div`
   width: 90%;
   min-width: 45vw;
-  max-width: 60vw;
+  max-width: 60rem;
   padding: 1rem;
   background-color: white;
   border-radius: 2rem;

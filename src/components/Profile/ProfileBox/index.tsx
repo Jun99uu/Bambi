@@ -41,7 +41,7 @@ const ProfileBox = () => {
 
 const BoxWrapper = styled.div`
   width: 100%;
-  padding: 2rem 0.2rem;
+  padding: 0rem 0.2rem 2rem 0.2rem;
   ${flex("row", "start", "center", 1.5)};
 `;
 

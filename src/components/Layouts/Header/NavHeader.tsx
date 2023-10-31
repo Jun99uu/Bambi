@@ -36,6 +36,8 @@ const HeaderWrapper = styled.div`
   z-index: 10;
 
   box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.1);
+  background-color: ${COLORS.white};
+  z-index: 10;
 
   ${mq[4]} {
     height: 5rem;

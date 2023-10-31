@@ -62,7 +62,7 @@ const additionalPageStyle = css`
 `;
 
 const catStyle = css`
-  width: 18rem;
+  width: 15rem;
   height: auto;
   position: absolute;
   bottom: 13rem;

@@ -18,6 +18,8 @@ const Home = () => {
   const { session } = useAuth();
   const { getImages, imageList, isLoading } = useImage();
 
+  console.log(imageList);
+
   useEffect(() => {
     getImages();
   }, []);

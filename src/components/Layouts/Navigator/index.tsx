@@ -65,6 +65,9 @@ const NavigatorWrapper = styled.div`
   bottom: 0px;
   left: 50%;
 
+  background-color: ${COLORS.white};
+  z-index: 10;
+
   ${transform("translate(-50%, 0)")}
 
   border-top: 0.5px solid rgba(10, 10, 10, 0.1);

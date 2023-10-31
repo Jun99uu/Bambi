@@ -18,7 +18,7 @@ const ImageList = ({ images, isLoading, ...props }: Props) => {
   ) : (
     <Container {...props}>
       {isLoading
-        ? newArr.map((_) => <ImageSkeleton key={_} />)
+        ? newArr.map((_, idx) => <ImageSkeleton key={idx} />)
         : images.map((img, idx) => (
             <Item item={img} isLoading={isLoading} key={img.url} />
           ))}
