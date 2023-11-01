@@ -16,7 +16,7 @@ const NicknameInput = ({ values, handleChangeInput }: StageProps) => {
       <Title {...config} />
       <TextInput
         containerStyle={injectAnimation("fadeInTopDown", "0.8s", "linear")}
-        max={6}
+        max={12}
         value={values.nickname}
         onChange={handleChangeInput}
         name="nickname"
