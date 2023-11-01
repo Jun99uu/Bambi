@@ -1,4 +1,6 @@
 import { seos } from "@/assets/seos";
+import { JOBS } from "@/assets/svg/data/jobs";
+import { PAINTINGS } from "@/assets/svg/data/paintings";
 import { BasicButton } from "@/components/Buttons";
 import Seo from "@/components/Seo";
 import { SignupStages } from "@/components/Signup";
@@ -14,8 +16,12 @@ const Signup = () => {
   const { setHeader } = useHeader();
   const [stage, setStage] = useState(0);
   const { values, handleChangeValue, handleChangeInput } =
-    useInput<AdditionalData>({ nickname: "", job: "", taste: "" });
-  const { signupAdditionalInfo, redirectHomePage } = useAuth();
+    useInput<AdditionalData>({
+      nickname: "",
+      job: JOBS[0].keyword,
+      taste: PAINTINGS[0].keyword,
+    });
+  const { signupAdditionalInfo, redirectLoginPage } = useAuth();
 
   const CurStage = SignupStages[stage];
 
@@ -29,7 +35,7 @@ const Signup = () => {
         break;
       case 2:
         const res = await signupAdditionalInfo(values);
-        if (res) redirectHomePage();
+        if (res) redirectLoginPage();
         break;
       default:
         break;

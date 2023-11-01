@@ -1,6 +1,6 @@
 import AuthApi from "@/apis/auth";
 import { AdditionalData } from "Auth";
-import { useSession } from "next-auth/react";
+import { getSession, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
