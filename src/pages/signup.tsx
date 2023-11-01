@@ -4,7 +4,7 @@ import { PAINTINGS } from "@/assets/svg/data/paintings";
 import { BasicButton } from "@/components/Buttons";
 import Seo from "@/components/Seo";
 import { SignupStages } from "@/components/Signup";
-import { useAuth, useHeader, useInput } from "@/hooks";
+import { useAuth, useHeader, useInput, useToast } from "@/hooks";
 import { mq } from "@/styles/breakpoints";
 import { PageContainer, flex } from "@/styles/tokens";
 import { css } from "@emotion/react";
@@ -22,6 +22,7 @@ const Signup = () => {
       taste: PAINTINGS[0].keyword,
     });
   const { signupAdditionalInfo, redirectLoginPage } = useAuth();
+  const { showToast } = useToast();
 
   const CurStage = SignupStages[stage];
 
@@ -35,7 +36,13 @@ const Signup = () => {
         break;
       case 2:
         const res = await signupAdditionalInfo(values);
-        if (res) redirectLoginPage();
+        if (res) {
+          showToast(
+            "positive",
+            "회원가입이 완료되었습니다.\n다시 로그인해주세요!"
+          );
+          redirectLoginPage();
+        }
         break;
       default:
         break;

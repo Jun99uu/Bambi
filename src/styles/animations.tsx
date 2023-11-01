@@ -211,6 +211,29 @@ const appearfinishStage = keyframes`
   }
 `;
 
+const toastAnimations = {
+  open: keyframes`
+    0%{
+      opacity: 0;
+      ${transform("translate(-50%, -20%)")};
+    }
+    100%{
+      opacity: 1;
+      ${transform("translate(-50%, 0%)")};
+    }
+  `,
+  close: keyframes`
+    0%{
+      opacity: 1;
+      ${transform("translate(-50%, 0%)")};
+    }
+    100%{
+      opacity: 0;
+      ${transform("translate(-50%, -20%)")};
+    }
+  `,
+};
+
 const animations = {
   fadeInTopDown,
   fadeInTopDownTranslate,
@@ -229,6 +252,8 @@ const animations = {
   nextStage,
   finishStage,
   appearfinishStage,
+  toastOpen: toastAnimations.open,
+  toastClose: toastAnimations.close,
 };
 
 export const injectAnimation = (

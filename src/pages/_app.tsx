@@ -1,6 +1,6 @@
 import type { AppProps } from "next/app";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import { Frame } from "@/components/Layouts";
+import { Frame, ToastProvider } from "@/components/Layouts";
 import { Global } from "@emotion/react";
 import reset from "@/styles/reset";
 import { SessionProvider } from "next-auth/react";
@@ -15,6 +15,7 @@ export default function App({
   return (
     <SessionProvider session={session}>
       <QueryClientProvider client={queryClient}>
+        <ToastProvider />
         <Frame>
           <Global styles={reset} />
           <Component {...pageProps} />
